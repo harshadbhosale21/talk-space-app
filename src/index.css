@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* -------------- Horizontal Scrollbar ---------------  */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-blue-100;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-blue-400 rounded-full;
+}
+
+/* -------------- Horizontal Scrollbar ---------------  */
+
+/* -------------- Chat-Room Bg ---------------  */
+.chat-room {
+    /* background-color: #64b6f5;
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/doodles.png');
+    background-size: 200px;
+    opacity: 0.4; */
+    background-color: rgba(108, 187, 247, 0.4);
+    /* Adjust opacity via RGBA */
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/doodles.png');
+    background-size: 200px;
+    background-blend-mode: multiply;
+    opacity: 0.4;
+    /* Blends color with image */
+}
