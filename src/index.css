@@ -18,15 +18,13 @@
 
 /* -------------- Chat-Room Bg ---------------  */
 .chat-room {
-    /* background-color: #64b6f5;
-    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/doodles.png');
-    background-size: 200px;
-    opacity: 0.4; */
-    background-color: rgba(108, 187, 247, 0.4);
+    background-color: rgba(0, 93, 164, 0.8);
     /* Adjust opacity via RGBA */
-    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/doodles.png');
-    background-size: 200px;
+    background-image: url('../public/images/chat-room-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 1000px;
     background-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: 0.3;
     /* Blends color with image */
 }
