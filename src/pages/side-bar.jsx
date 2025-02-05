@@ -8,6 +8,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Status from '../components/status';
+import DirectConnections from '../components/direct-connections';
 
 const SideBar = () => {
 
@@ -108,22 +109,11 @@ const SideBar = () => {
                                     }
                                 }}
                             >
-                                <Tab value='1' label='Direct' color='blue' />
+                                <Tab value='1' label='Direct' />
                                 <Tab value='2' label='Group' />
                             </TabList>
                             <TabPanel value="1">
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
-                                <p className="p-4">Scrollable Content...</p>
+                                <DirectConnections />
                             </TabPanel>
                         </TabContext>
                     </Grid>

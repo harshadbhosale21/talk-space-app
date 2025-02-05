@@ -4,7 +4,7 @@ import React from 'react'
 const Messenger = () => {
     return (
         <>
-            <div className="sticky top-0 bg-blue-300 h-20 z-10">
+            <div className="sticky top-0 bg-blue-300 h-20 z-10 shadow-xl shadow-gray-500">
                 <Grid container className='h-full'>
                     <Grid item xs={8} className='flex ps-6 justify-start items-center'>
                         <img
