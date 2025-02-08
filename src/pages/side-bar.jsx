@@ -1,4 +1,4 @@
-import { Button, CardContent, CardHeader, Divider, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Badge, Button, CardContent, CardHeader, Divider, Fab, Grid, IconButton, TextField, Tooltip, Typography } from '@mui/material';
 import Tab from '@mui/material/Tab'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
@@ -10,11 +10,17 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Status from '../components/status';
 import DirectConnections from '../components/direct-connections';
 
-const SideBar = () => {
+import classnames from 'classnames';
+
+import ProfileMenu from './profileMenu';
+
+const SideBar = (props) => {
+
+    const { width } = props;
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = useState('1')
+    const [value, setValue] = useState('1');
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
@@ -35,7 +41,7 @@ const SideBar = () => {
                         </Grid>
                         <Grid item xs={4} className="flex justify-end items-center">
                             <IconButton color="info" onClick={handleDrawerToggle}>
-                                {open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                                <i className='ri-more-2-fill'></i>
                             </IconButton>
                         </Grid>
                     </Grid>
@@ -45,7 +51,33 @@ const SideBar = () => {
                             <Typography className="text-xl">Status</Typography>
                             <Button variant="outlined" color="info" size="small">View All</Button>
                         </div>
-                        <Status />
+                        <Grid container>
+                            <Grid item xs={2} className='flex items-center justify-center'>
+                                <div className="mt-3">
+                                    <Tooltip title="add status">
+                                        <Badge
+                                            badgeContent={<i className='ri-add-fill'></i>}
+                                            overlap='circular'
+                                            color="secondary"
+                                            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                            className='hover:cursor-pointer'
+                                        >
+                                            <div className="flex flex-col items-center hover:cursor-pointer">
+                                                <img
+                                                    src='/images/avatars/1.png'
+                                                    alt="profile"
+                                                    className="w-16 h-16 rounded-full border-2 border-blue-500"
+                                                />
+                                            </div>
+                                        </Badge>
+                                    </Tooltip>
+                                    <p className="text-sm mt-2">Your Status</p>
+                                </div>
+                            </Grid>
+                            <Grid item xs={10}>
+                                <Status />
+                            </Grid>
+                        </Grid>
                     </div>
                     <Divider />
                 </CardContent>
@@ -54,6 +86,35 @@ const SideBar = () => {
             {/* Scrollable Content */}
             <CardContent className='h-[433px] overflow-y-auto custom-scrollbar'>
                 <Grid container spacing={2} className='mb-2.5'>
+                    <Grid item xs={12} className='flex justify-center items-center gap-1.5'>
+                        <Fab size='small' color="info" variant='square'>
+                            <i class="ri-search-line"></i>
+                        </Fab>
+                        <TextField
+                            placeholder="Search by name..."
+                            className="sm:w-[350px] max-sm:flex-1"
+                            variant="outlined"
+                            sx={{
+                                height: 36, // Reduced height
+                                "& .MuiOutlinedInput-root": {
+                                    borderRadius: "18px", // Fully rounded (semi-circle)
+                                    height: "36px", // Consistent height
+                                    paddingX: "10px",
+
+                                    "& fieldset": {
+                                        borderColor: "gray", // Default border color
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "gray", // No change on hover
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "info.main", // Border color on focus
+                                    },
+                                },
+                            }}
+                        />
+
+                    </Grid>
                     <Grid item xs={4} md={4} lg={4} className='flex justify-start items-center'>
                         <p className='font-semibold text-lg font-sans'>Messages (1)</p>
                     </Grid>
@@ -123,6 +184,12 @@ const SideBar = () => {
             <div className="w-full bg-blue-400 text-center p-2">
                 © {new Date().getFullYear()} <a href="https://harshb.vercel.app" className="text-white hover:text-blue-900">Harshad Bhosale</a>. All rights reserved.
             </div>
+
+            <ProfileMenu
+                open={open}
+                handleClose={() => setOpen(!open)}
+                width={width}
+            />
         </>
     )
 }

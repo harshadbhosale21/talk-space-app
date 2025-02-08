@@ -50,6 +50,27 @@ const connectionData = [
         role: 'Manager',
         isChatActive: false
     },
+    {
+        avatar: "/images/avatars/4.png",
+        name: 'Mark Hughs',
+        message: 'Good Noght',
+        role: 'Manager',
+        isChatActive: false
+    },
+    {
+        avatar: "/images/avatars/4.png",
+        name: 'Mark Hughs',
+        message: 'Good Noght',
+        role: 'Manager',
+        isChatActive: false
+    },
+    {
+        avatar: "/images/avatars/4.png",
+        name: 'Mark Hughs',
+        message: 'Good Noght',
+        role: 'Manager',
+        isChatActive: false
+    },
 ]
 
 
@@ -68,19 +89,6 @@ const DirectConnections = () => {
 
     return (
         <>
-            {/* <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p>
-            <p className="p-4">Scrollable Content...</p> */}
-
             {
                 connectionList.length === 0 ? (
                     <Typography>No Connections Here</Typography>

@@ -4,10 +4,11 @@ import { styled, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import { Button, CardContent, CardHeader, Grid } from '@mui/material';
+import routesLinks from "../routes-links.jsx"
 
 import SideBar from '../pages/side-bar';
-import Messenger from '../pages/messenger';
-import HomePage from '../pages/homePage';
+// import Messenger from '../pages/messenger';
+// import HomePage from '../pages/homePage';
 
 const drawerWidth = 240;
 
@@ -100,17 +101,21 @@ export default function WebLayout() {
     return (
         <Grid container>
             <Grid item xs={4} className="relative border min-h-screen h-screen">
-                <SideBar />
+                <SideBar width={"33.33%"} />
             </Grid>
             <Grid item xs={8}>
                 {/* Other Content */}
                 <div className="h-screen overflow-y-auto">
-                    <Router>
-                        <Routes>
-                            <Route path='/' element={<HomePage />}></Route>
-                            <Route path='/messenger' element={<Messenger />}></Route>
-                        </Routes>
-                    </Router>
+                    <Routes>
+                        {
+                            routesLinks.map(({ layout, pages }) =>
+                                layout === 'chat' &&
+                                pages.map(({ path, element }) => (
+                                    <Route exact element={element} path={path} />
+                                ))
+                            )
+                        }
+                    </Routes>
                 </div>
             </Grid>
         </Grid>

@@ -21,7 +21,7 @@ const Status = () => {
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={4}
-                slidesPerView={5}
+                slidesPerView={4}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 loop={false}
             >
